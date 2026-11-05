@@ -1,0 +1,22 @@
+# Runs every automatic test on each push and pull request. A red cross means something broke: do not deploy that version.
+name: tests
+on: [push, pull_request]
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: TypeScript (used by the permission-parity test; the project pins 5.8)
+        run: npm install -g typescript@5.8.3
+      - name: Server tests (needs the project's TypeScript for the permission-parity test)
+        working-directory: server
+        run: |
+          set -e
+          for t in test test-services test-ops test-mpesa test-smoke test-reports test-console test-parity test-lang-push test-office-tools test-admin-tools test-dev-reports test-guide test-reminders test-yearly test-clerk-tools test-sandbox test-routes; do
+            echo "== $t"; node --no-warnings $t.mjs | tail -2
+          done
+          for t in test-minutes test-outbox test-quickcard test-sermon; do
+            echo "== $t"; node --no-warnings --experimental-strip-types $t.mjs | tail -2
+          done
