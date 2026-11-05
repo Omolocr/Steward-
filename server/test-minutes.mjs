@@ -1,0 +1,21 @@
+// The minutes and notice composer used by the Secretary's Minutes Builder (pure functions from the app). Run: node --no-warnings --experimental-strip-types test-minutes.mjs
+import { composeMinutes, composeNotice, emptyMinutes, lines } from '../src/services/minutes.ts';
+let pass = 0, fail = 0;
+const ok = (n, c, x = '') => { c ? pass++ : fail++; console.log((c ? 'PASS ' : 'FAIL ') + n + (c ? '' : '  ' + x)); };
+const i = { ...emptyMinutes(), kind: 'Church Board', date: '2026-10-25', time: '14:00', venue: 'Church hall', chair: 'Pastor John', secretary: 'Ruth Njeri', present: '12', apologies: 'A. Mwangi', agenda: '1. Opening prayer\n- Treasurer report\n• Camp meeting', resolutions: 'Approve the budget\n\n2) Repair the roof', actions: 'Buy cement – Francis – 2026-11-01', nextDate: '2026-11-22', nextTime: '14:00' };
+ok('list marks and empty lines are removed', JSON.stringify(lines('1. a\n - b\n\n• c\n2) d')) === JSON.stringify(['a', 'b', 'c', 'd']));
+const m = composeMinutes(i);
+ok('the title has the kind and the date', m.title === 'Church Board – 2026-10-25', m.title);
+ok('English minutes have every part', ['MINUTES OF THE CHURCH BOARD', 'Date: 2026-10-25', 'Venue: Church hall', 'Chair: Pastor John', 'Present: 12', 'Apologies: A. Mwangi', 'AGENDA', '  1. Opening prayer', '  3. Camp meeting', 'RESOLUTIONS', '  2. Repair the roof', 'ACTION ITEMS', 'Buy cement – Francis – 2026-11-01', 'NEXT MEETING: 2026-11-22 at 14:00', 'Minutes recorded by Ruth Njeri.'].every((x) => m.body.includes(x)), m.body);
+const s = composeMinutes(i, true);
+ok('Kiswahili minutes', /MUHTASARI WA CHURCH BOARD/.test(s.body) && /AJENDA/.test(s.body) && /MAAZIMIO/.test(s.body) && /KIKAO KIJACHO: 2026-11-22 saa 14:00/.test(s.body) && !/AGENDA/.test(s.body));
+const e = composeMinutes(emptyMinutes());
+ok('empty minutes do not crash and have no empty sections', !/AGENDA|RESOLUTIONS|ACTION ITEMS/.test(e.body) && /MEETING/.test(e.body), e.body);
+const n = composeNotice(i);
+ok('notice of the meeting itself, with its agenda', /Church Board will be held on 2026-10-25 at 14:00 \(Church hall\)/.test(n.body) && /1. Opening prayer/.test(n.body) && n.title === 'NOTICE OF CHURCH BOARD – 2026-10-25', n.title + '\n' + n.body);
+const nn = composeNotice(i, false, true);
+ok('notice of the NEXT meeting uses the next date and no agenda', /on 2026-11-22 at 14:00/.test(nn.body) && !/Opening prayer/.test(nn.body) && /2026-11-22/.test(nn.title), nn.body);
+const ns = composeNotice(i, true);
+ok('Kiswahili notice', /kitafanyika tarehe 2026-10-25 saa 14:00/.test(ns.body) && /TANGAZO LA/.test(ns.title));
+ok('a typed line that looks like a heading stays an ordinary numbered item', composeMinutes({ ...i, agenda: 'Hello\nRESOLUTIONS' }).body.includes('  2. RESOLUTIONS') && composeMinutes({ ...i, agenda: 'Hello\nRESOLUTIONS' }).body.split('\n').filter((l) => l === 'RESOLUTIONS').length === 1);
+console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

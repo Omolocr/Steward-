@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Church Connect Developer Console</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+/* Seventh-day Adventist Church emblem in every console header */
+header h1::before,.sdalogo{content:'';display:inline-block;width:28px;height:28px;border-radius:50%;background:#fff url(data:image/png;base64,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) center/78% no-repeat;vertical-align:middle;margin-right:8px;flex:none}
+:root{--bg:#F6F4EE;--card:#fff;--ink:#1F2A37;--mute:#6B7280;--line:#E5E1D6;--pri:#1F4E79;--soft:#E3EDF7;--gold:#B8862B;--ok:#2E7D4F;--warn:#B45309;--bad:#B3261E}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--pri);color:#fff;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+header h1{font-size:17px;margin:0;flex:1;min-width:200px}
+header small{opacity:.85}
+.demo{background:var(--gold);color:#fff;border-radius:99px;padding:2px 9px;font-size:11px;font-weight:700;letter-spacing:.04em}
+nav{display:flex;gap:4px;padding:8px 12px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{border:0;background:none;padding:8px 12px;border-radius:8px;font:inherit;font-weight:600;color:var(--mute);cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--soft);color:var(--pri)}
+nav .badge{background:var(--bad);color:#fff;border-radius:99px;font-size:11px;padding:1px 6px;margin-left:4px}
+main{max-width:1040px;margin:0 auto;padding:16px}
+h2{font-size:19px;margin:4px 0 12px}
+h3{font-size:15px;margin:18px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1;min-width:180px}
+label{display:block;font-size:12px;font-weight:700;color:var(--mute);margin:8px 0 3px;text-transform:uppercase;letter-spacing:.03em}
+input,select,textarea{width:100%;font:inherit;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+textarea{min-height:70px;resize:vertical}
+button.b{border:0;border-radius:8px;padding:9px 14px;font:inherit;font-weight:700;cursor:pointer;background:var(--pri);color:#fff}
+button.b.g{background:#fff;color:var(--pri);border:1px solid var(--pri)}
+button.b.d{background:#fff;color:var(--bad);border:1px solid var(--bad)}
+button.b.ok{background:var(--ok)}
+button.b:disabled{opacity:.5;cursor:default}
+button.b.s{padding:5px 10px;font-size:13px}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.03em;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr.click{cursor:pointer}tr.click:hover{background:var(--soft)}
+.pill{display:inline-block;border-radius:99px;padding:2px 9px;font-size:12px;font-weight:700}
+.pill.active{background:#E4F3EA;color:var(--ok)}.pill.suspended{background:#FDF0DC;color:var(--warn)}.pill.archived{background:#EEE;color:#555}.pill.quiet{background:#FDF0DC;color:var(--warn)}.pill.dormant,.pill.setup{background:#FBE3E1;color:var(--bad)}.pill.paused{background:#EEE;color:#555}
+.num{font:700 17px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:var(--pri)}
+.mute{color:var(--mute)}.err{color:var(--bad);font-weight:600;margin:8px 0}.okmsg{color:var(--ok);font-weight:600;margin:8px 0}
+.big{font-size:30px;font-weight:800;color:var(--pri)}
+.chat{height:340px;overflow-y:auto;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:78%;padding:8px 11px;border-radius:12px;background:#fff;border:1px solid var(--line);align-self:flex-start;white-space:pre-wrap;word-wrap:break-word}
+.msg.me{align-self:flex-end;background:var(--soft);border-color:#C9DCEE}
+.msg small{display:block;color:var(--mute);font-size:11px;margin-bottom:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid2.sup{grid-template-columns:minmax(220px,1fr) 2fr}.card{overflow-x:auto}
+@media(max-width:760px){.grid2,.grid2.sup{grid-template-columns:1fr}.row>*{min-width:140px}th.h,td.h{display:none}}
+.login{max-width:380px;margin:40px auto}
+.back{background:none;border:0;color:var(--pri);font-weight:700;cursor:pointer;padding:0;margin-bottom:8px;font:inherit}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+// ------------------------------------------------------------------ helpers
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const when = (iso) => { if (!iso) return '—'; const d = new Date(iso); return d.toLocaleString('en-KE', { dateStyle: 'medium', timeStyle: 'short' }); };
+const store = { get: (k) => { try { return sessionStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { sessionStorage.setItem(k, v); } catch { /* private mode */ } }, del: (k) => { try { sessionStorage.removeItem(k); } catch { /* ignore */ } } };
+
+// Demo mode: when this page is opened as a plain file (no server behind it) it runs against a small in-browser copy of the API,
+// so you can click through every screen. On the real server (/console) it always talks to the real API.
+const DEMO = location.protocol === 'file:' || new URLSearchParams(location.search).has('demo');
+
+// ------------------------------------------------------------------ API
+let token = store.get('dev-token');
+async function api(method, path, body) {
+  if (DEMO) return demoApi(method, path, body);
+  const r = await fetch(path, { method, headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) }, body: body === undefined ? undefined : JSON.stringify(body) });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 401 && token) { token = null; store.del('dev-token'); state.dev = null; render(); }
+  if (!r.ok) throw Object.assign(new Error(j.error || 'Something went wrong.'), { status: r.status });
+  return j;
+}
+
+// ------------------------------------------------------------------ state + render
+const state = { dev: null, view: 'churches', month: '', churchId: null, churches: [], team: null, unread: 0, threads: [], filter: '', msg: '', err: '', login: { step: 'phone', phone: '' } };
+const setMsg = (m, e) => { state.msg = m || ''; state.err = e || ''; };
+const flash = () => (state.err ? `<div class="err">${esc(state.err)}</div>` : '') + (state.msg ? `<div class="okmsg">${esc(state.msg)}</div>` : '');
+const app = $('#app');
+let chatTimer = null;
+
+function render() {
+  clearInterval(chatTimer); chatTimer = null;
+  if (!state.dev) return renderLogin();
+  app.innerHTML = `
+  <header><h1>Church Connect · Developer Console ${DEMO ? '<span class="demo">DEMO</span>' : ''}</h1><small>${esc(state.dev.name)}</small><button class="b g s" id="out">Sign out</button></header>
+  <nav>${[['churches', 'Churches'], ['new', 'New church'], ['support', 'Support'], ['reports', 'Reports'], ['team', 'Team'], ['template', 'Template'], ['activity', 'Activity']].map(([k, l]) => `<button data-v="${k}" class="${state.view === k || (k === 'churches' && state.view === 'church') ? 'on' : ''}">${l}${k === 'support' && state.unread ? `<span class="badge">${state.unread}</span>` : ''}${k === 'team' && state.team ? ` (${state.team.active}/${state.team.limit})` : ''}</button>`).join('')}</nav>
+  <main id="main"></main>`;
+  $('#out').onclick = () => { token = null; store.del('dev-token'); state.dev = null; render(); };
+  app.querySelectorAll('nav button').forEach((b) => (b.onclick = () => go(b.dataset.v)));
+  views[state.view]();
+}
+function go(v, churchId) { state.view = v; if (churchId) state.churchId = churchId; setMsg(); render(); }
+
+// ------------------------------------------------------------------ sign in
+// Team quick entry: only a sandbox server (made-up data) offers it. One tap, no SMS code.
+async function loadQuick() {
+  let list; try { list = (await api('GET', '/sandbox/numbers')).numbers; } catch { return; }
+  const dev = list.filter((n) => n.console === 'developer');
+  const box = document.createElement('div'); box.className = 'card'; box.style.cssText = 'background:#FFF7E0;margin-top:12px';
+  box.innerHTML = `<b>Team quick entry (test server)</b><p class="mute">For the developer and development team. This server holds made-up data, so these numbers open the console with one tap and no code.</p>` +
+    dev.map((n) => `<button class="b g" data-q="${n.phone}" style="margin:3px 3px 0 0">${esc(n.label.replace('App Developer console, ', ''))} · ${n.phone}</button>`).join('') +
+    `<p class="mute" style="margin-top:10px">Church Admin and every leader dashboard: open the phone app on this server and use its Team quick entry list (numbers 0700000101 and 0700000201 to 0700000221).</p>`;
+  const card = app.querySelector('.login'); if (!card) return; card.appendChild(box);
+  box.querySelectorAll('[data-q]').forEach((b) => b.onclick = async () => {
+    try { const r = await api('POST', '/sandbox/enter', { phone: b.dataset.q }); token = r.token; store.set('dev-token', token); state.dev = r.developer; setMsg(); await boot(); }
+    catch (e) { setMsg('', e.message); renderLogin(); }
+  });
+}
+function renderLogin() {
+  const L = state.login;
+  app.innerHTML = `<div class="login card"><div style="text-align:center;margin-bottom:6px"><span class="sdalogo" style="width:64px;height:64px;border:1px solid var(--line);vertical-align:middle" role="img" aria-label="Seventh-day Adventist Church"></span></div><h2 style="text-align:center">Developer sign in</h2>
+    <p class="mute">Only phone numbers on the app developer team can open this console. ${DEMO ? 'Demo: use <b>0700000001</b>; the code is shown on screen.' : ''}</p>${flash()}
+    ${L.step === 'phone' ? `<label>Phone number</label><input id="ph" inputmode="tel" placeholder="07XXXXXXXX" value="${esc(L.phone)}"><p><button class="b" id="go">Send code</button></p>`
+      : `<label>SMS code sent to ${esc(L.phone)}</label><input id="cd" inputmode="numeric" maxlength="6" placeholder="6-digit code" value="${esc(L.dev || '')}"><p><button class="b" id="go">Sign in</button> <button class="b g" id="bk">Change number</button></p>`}</div>`;
+  if (L.step === 'phone') loadQuick();
+  if (L.step === 'phone') {
+    $('#go').onclick = async () => {
+      L.phone = $('#ph').value.trim(); setMsg();
+      try { const r = await api('POST', '/auth/request-otp', { phone: L.phone }); L.dev = r.devCode || ''; L.step = 'code'; } catch (e) { setMsg('', e.message); }
+      renderLogin();
+    };
+  } else {
+    $('#bk').onclick = () => { L.step = 'phone'; setMsg(); renderLogin(); };
+    $('#go').onclick = async () => {
+      try { const r = await api('POST', '/dev/login', { phone: L.phone, code: $('#cd').value.trim() }); token = r.token; store.set('dev-token', token); state.dev = r.developer; setMsg(); await boot(); }
+      catch (e) { setMsg('', e.message); renderLogin(); }
+    };
+  }
+}
+
+async function boot() {
+  try { await Promise.all([loadChurches(), loadTeam(), loadThreads()]); } catch (e) { setMsg('', e.message); }
+  render();
+}
+const loadChurches = async () => { state.churches = (await api('GET', '/dev/churches')).churches; };
+const loadTeam = async () => { state.team = await api('GET', '/dev/team'); };
+const loadThreads = async () => { const r = await api('GET', '/dev/support'); state.threads = r.threads; state.unread = r.unread; };
+
+// ------------------------------------------------------------------ views
+const views = {
+  churches() {
+    const q = state.filter.toLowerCase();
+    const rows = state.churches.filter((c) => !q || (c.name + ' ' + c.number + ' ' + c.district + ' ' + c.county).toLowerCase().includes(q));
+    const tot = state.churches.reduce((s, c) => s + c.members, 0);
+    $('#main').innerHTML = `<h2>Churches</h2>${flash()}
+    <div class="row" style="margin-bottom:12px"><div class="card"><div class="big">${state.churches.length}</div><div class="mute">churches</div></div><div class="card"><div class="big">${state.churches.filter((c) => c.status === 'active').length}</div><div class="mute">active</div></div><div class="card"><div class="big">${tot}</div><div class="mute">members in total</div></div><div class="card"><div class="big">${state.unread}</div><div class="mute">unread support messages</div></div></div>
+    <div class="card"><div class="row"><input id="f" placeholder="Search by church name, number, district…" value="${esc(state.filter)}"><div style="flex:0"><button class="b" id="nw">+ New church</button></div></div>
+    <table><tr><th>Church</th><th>Number</th><th class="h">Members</th><th class="h">Waiting</th><th>Status</th><th></th></tr>
+    ${rows.map((c) => `<tr class="click" data-id="${esc(c.id)}"><td><b>${esc(c.name)}</b><div class="mute">${esc([c.district, c.county].filter(Boolean).join(', '))}</div></td><td class="num">${esc(c.number)}</td><td class="h">${c.members}</td><td class="h">${c.waiting}</td><td><span class="pill ${esc(c.status)}">${esc(c.status)}</span></td><td>${c.unread ? `<span class="pill suspended">${c.unread} new</span>` : ''}</td></tr>`).join('') || '<tr><td colspan="6" class="mute">No churches yet. Create the first one with “New church”.</td></tr>'}</table></div>`;
+    $('#f').oninput = (e) => { state.filter = e.target.value; const p = e.target.selectionStart; views.churches(); const f = $('#f'); f.focus(); f.setSelectionRange(p, p); };
+    $('#nw').onclick = () => go('new');
+    document.querySelectorAll('tr.click').forEach((r) => (r.onclick = () => go('church', r.dataset.id)));
+  },
+
+  new() {
+    const o = state.churches.map((c) => `<option value="${esc(c.id)}">${esc(c.name)} (${esc(c.number)})</option>`).join('');
+    $('#main').innerHTML = `<h2>New church</h2><p class="mute">This clones the client console for a new church: a fresh, empty, independent copy with the church’s name written on it and its own special church number. Nothing is shared with any other church.</p>${flash()}
+    <div class="card"><div class="row"><div><label>Church name *</label><input id="n" placeholder="e.g. Kisumu Central SDA Church"></div><div><label>Church number (optional)</label><input id="num" inputmode="numeric" placeholder="leave empty to generate one"></div></div>
+    <div class="row"><div><label>Church admin’s phone</label><input id="ap" inputmode="tel" placeholder="07XXXXXXXX"></div><div><label>Copy settings from</label><select id="cl"><option value="">The standard template</option>${o}</select></div></div>
+    <div class="row"><div><label>District</label><input id="d"></div><div><label>Station</label><input id="s"></div><div><label>Conference / Field</label><input id="cf"></div><div><label>County</label><input id="co"></div></div>
+    <label>Note (only developers see this)</label><input id="nt"><p><button class="b" id="mk">Create church</button></p></div>`;
+    $('#mk').onclick = async () => {
+      const b = { name: $('#n').value, number: $('#num').value, adminPhone: $('#ap').value, cloneFrom: $('#cl').value || undefined, district: $('#d').value, station: $('#s').value, conference: $('#cf').value, county: $('#co').value, note: $('#nt').value };
+      try { const r = await api('POST', '/dev/churches', b); await loadChurches(); state.created = r.church; setMsg(`Created ${r.church.name}. Church number: ${r.church.number}. Give this number to the church admin; members use it when they sign up.`); go('church', r.church.id); }
+      catch (e) { setMsg('', e.message); views.new(); }
+    };
+  },
+
+  async church() {
+    const id = state.churchId; let d;
+    try { d = await api('GET', '/dev/churches/' + id); } catch (e) { setMsg('', e.message); return go('churches'); }
+    const c = d.church, s = d.settings;
+    $('#main').innerHTML = `<button class="back" id="bk">← All churches</button><h2>${esc(c.name)} <span class="pill ${esc(c.status)}">${esc(c.status)}</span></h2>${flash()}
+    <div class="grid2"><div class="card"><div class="mute">Special church number</div><div class="num" style="font-size:30px">${esc(c.number)}</div><p class="mute">Members type this number when they sign up or move to this church. Their activities are then linked only to this church.</p>
+      <div class="row"><div><b>${c.members}</b><div class="mute">members</div></div><div><b>${c.waiting}</b><div class="mute">waiting to join</div></div><div><b>${esc(when(c.lastActivity))}</b><div class="mute">last activity</div></div></div></div>
+    <div class="card"><h3 style="margin-top:0">Church admin</h3><p>${c.adminPhone ? `<b>${esc(c.adminPhone)}</b>` : '<span class="mute">No admin appointed yet</span>'}</p><label>Appoint (or replace) the admin</label><div class="row"><input id="ap" inputmode="tel" placeholder="07XXXXXXXX"><div style="flex:0"><button class="b" id="sa">Appoint</button></div></div><p class="mute">A replaced admin becomes an ordinary member.</p></div></div>
+    <div class="card"><h3 style="margin-top:0">Name and place</h3><div class="row"><div><label>Church name</label><input id="n" value="${esc(c.name)}"></div><div><label>District</label><input id="d" value="${esc(c.district)}"></div><div><label>Station</label><input id="s" value="${esc(c.station)}"></div><div><label>Conference</label><input id="cf" value="${esc(c.conference)}"></div><div><label>County</label><input id="co" value="${esc(c.county)}"></div></div><label>Developer note</label><input id="nt" value="${esc(c.note || '')}"><p><button class="b" id="sv">Save</button></p></div>
+    <div class="card"><h3 style="margin-top:0">Settings (the church admin can also change these)</h3><div class="row"><div><label>Pay Bill number</label><input id="pb" value="${esc(s.paybill)}"></div><div><label>Language</label><select id="lg"><option value="en" ${s.language === 'en' ? 'selected' : ''}>English</option><option value="sw" ${s.language === 'sw' ? 'selected' : ''}>Kiswahili</option></select></div><div><label>New members need admin approval</label><select id="ra"><option value="1" ${s.requireJoinApproval ? 'selected' : ''}>Yes</option><option value="0" ${s.requireJoinApproval ? '' : 'selected'}>No</option></select></div></div><label>Giving categories (comma separated)</label><input id="ct" value="${esc(s.categories.join(', '))}"><p><button class="b" id="ss">Save settings</button></p></div>
+    <div class="card"><h3 style="margin-top:0">Access</h3><p class="mute">Pausing blocks everyone in this church from signing in; all data is kept. Nothing is ever deleted: archiving keeps the full history and can be undone.</p>
+      ${c.status !== 'active' ? '<button class="b ok" data-st="active">Re-activate</button> ' : ''}${c.status === 'active' ? '<button class="b g" data-st="suspended">Pause</button> ' : ''}${c.status !== 'archived' ? '<button class="b d" data-st="archived">Archive church</button>' : ''}</div>
+    <div class="card"><h3 style="margin-top:0">Direct line</h3><button class="b" id="chat">Open support chat ${c.unread ? `(${c.unread} new)` : ''}</button></div>
+    <div class="card"><h3 style="margin-top:0">History</h3><table>${d.history.map((h) => `<tr><td class="mute" style="white-space:nowrap">${esc(when(h.at))}</td><td>${esc(h.action)}</td><td class="mute">${esc(h.detail)}</td></tr>`).join('')}</table></div>`;
+    $('#bk').onclick = () => go('churches');
+    $('#chat').onclick = () => go('support', c.id);
+    const run = (fn) => async () => { try { await fn(); await loadChurches(); setMsg('Saved.'); } catch (e) { setMsg('', e.message); } await loadTeam(); render(); };
+    $('#sa').onclick = run(() => api('POST', `/dev/churches/${id}/admin`, { phone: $('#ap').value }));
+    $('#sv').onclick = run(() => api('POST', `/dev/churches/${id}/update`, { name: $('#n').value, district: $('#d').value, station: $('#s').value, conference: $('#cf').value, county: $('#co').value, note: $('#nt').value }));
+    $('#ss').onclick = run(() => api('POST', `/dev/churches/${id}/update`, { settings: { paybill: $('#pb').value, language: $('#lg').value, requireJoinApproval: $('#ra').value === '1', categories: $('#ct').value.split(',').map((x) => x.trim()).filter(Boolean) } }));
+    document.querySelectorAll('[data-st]').forEach((b) => (b.onclick = () => { const st = b.dataset.st; if (st !== 'active' && !confirm(st === 'archived' ? 'Archive this church? Its members will not be able to sign in until you re-activate it. No data is removed.' : 'Pause this church?')) return; run(() => api('POST', `/dev/churches/${id}/status`, { status: st }))(); }));
+  },
+
+  async support() {
+    await loadThreads().catch(() => {});
+    const cur = state.churchId && state.view === 'support' ? state.churchId : (state.threads[0] || {}).churchId;
+    const all = state.churches;
+    $('#main').innerHTML = `<h2>Support inbox</h2><p class="mute">One conversation per church. All developers on the team see the same conversation.</p>${flash()}
+    <div class="grid2 sup"><div class="card" style="padding:6px"><table>${(() => { const ids = new Set(state.threads.map((t) => t.churchId)); const rows = [...state.threads, ...all.filter((c) => !ids.has(c.id)).map((c) => ({ churchId: c.id, church: c.name, unread: 0, last: null }))]; return rows.map((t) => `<tr class="click" data-c="${esc(t.churchId)}" style="${t.churchId === cur ? 'background:var(--soft)' : ''}"><td><b>${esc(t.church)}</b>${t.unread ? ` <span class="badge" style="background:var(--bad);color:#fff;border-radius:99px;font-size:11px;padding:1px 6px">${t.unread}</span>` : ''}<div class="mute" style="font-size:12px">${t.last ? esc(t.last.body.slice(0, 50)) : 'No messages yet'}</div></td></tr>`).join(''); })()}</table></div>
+    <div class="card" id="pane">${cur ? '' : '<p class="mute">Choose a church on the left.</p>'}</div></div>`;
+    document.querySelectorAll('tr.click').forEach((r) => (r.onclick = () => { state.churchId = r.dataset.c; render(); }));
+    if (!cur) return;
+    const ch = all.find((c) => c.id === cur) || { name: 'Church' };
+    $('#pane').innerHTML = `<h3 style="margin-top:0">${esc(ch.name)} <span class="mute num" style="font-size:13px">${esc(ch.number || '')}</span></h3><div class="chat" id="chat"></div><div class="row" style="margin-top:8px"><textarea id="tx" placeholder="Write to the church admin…" maxlength="2000"></textarea><div style="flex:0"><button class="b" id="snd">Send</button></div></div>`;
+    let last = ''; const box = $('#chat');
+    const draw = (msgs) => { for (const m of msgs) { const d = document.createElement('div'); d.className = 'msg' + (m.from === 'developer' ? ' me' : ''); d.innerHTML = `<small>${esc(m.from === 'developer' ? m.name + ' (developer)' : m.name + ' (church admin)')} · ${esc(when(m.at))}</small>${esc(m.body)}`; box.appendChild(d); last = m.at; } if (msgs.length) box.scrollTop = box.scrollHeight; };
+    const poll = async () => { try { const r = await api('GET', `/dev/support/${cur}?after=${encodeURIComponent(last)}`); draw(r.messages); } catch { /* try again next time */ } };
+    await poll();
+    $('#snd').onclick = async () => { const t = $('#tx').value.trim(); if (!t) return; try { await api('POST', '/dev/support/' + cur, { body: t }); $('#tx').value = ''; await poll(); } catch (e) { setMsg('', e.message); alert(e.message); } };
+    chatTimer = setInterval(poll, 5000);
+  },
+
+  async team() {
+    await loadTeam();
+    const t = state.team;
+    $('#main').innerHTML = `<h2>Developer team</h2><p class="mute">Up to ${t.limit} developers can be active at once (${t.active} now). Developers are archived, never deleted.</p>${flash()}
+    <div class="card"><table><tr><th>Name</th><th>Phone</th><th>Status</th><th></th></tr>${t.developers.map((d) => `<tr><td><b>${esc(d.name)}</b></td><td>${esc(d.phone)}</td><td><span class="pill ${d.status === 'active' ? 'active' : 'archived'}">${esc(d.status)}</span></td><td>${d.id === state.dev.id ? '<span class="mute">you</span>' : d.status === 'active' ? `<button class="b d s" data-a="${esc(d.id)}">Archive</button>` : `<button class="b g s" data-r="${esc(d.id)}">Restore</button>`}</td></tr>`).join('')}</table></div>
+    <div class="card"><h3 style="margin-top:0">Add a developer</h3><div class="row"><div><label>Name</label><input id="dn"></div><div><label>Phone</label><input id="dp" inputmode="tel" placeholder="07XXXXXXXX"></div><div style="flex:0;align-self:end"><button class="b" id="ad" ${t.active >= t.limit ? 'disabled' : ''}>Add</button></div></div>${t.active >= t.limit ? '<p class="err">The team is full. Archive someone first.</p>' : ''}</div>`;
+    const act = (fn) => async () => { try { await fn(); setMsg('Done.'); } catch (e) { setMsg('', e.message); } await loadTeam(); render(); };
+    $('#ad').onclick = act(() => api('POST', '/dev/team', { name: $('#dn').value, phone: $('#dp').value }));
+    document.querySelectorAll('[data-a]').forEach((b) => (b.onclick = () => confirm('Archive this developer? They will no longer be able to sign in.') && act(() => api('POST', `/dev/team/${b.dataset.a}/archive`))()));
+    document.querySelectorAll('[data-r]').forEach((b) => (b.onclick = act(() => api('POST', `/dev/team/${b.dataset.r}/restore`))));
+  },
+
+  async template() {
+    const t = (await api('GET', '/dev/template')).template;
+    $('#main').innerHTML = `<h2>Standard template</h2><p class="mute">Every new church starts as a copy of this. Changing it does not alter churches that already exist.</p>${flash()}
+    <div class="card"><div class="row"><div><label>Default Pay Bill</label><input id="pb" value="${esc(t.paybill)}"></div><div><label>Default language</label><select id="lg"><option value="en" ${t.language === 'en' ? 'selected' : ''}>English</option><option value="sw" ${t.language === 'sw' ? 'selected' : ''}>Kiswahili</option></select></div><div><label>New members need admin approval</label><select id="ra"><option value="1" ${t.requireJoinApproval ? 'selected' : ''}>Yes</option><option value="0" ${t.requireJoinApproval ? '' : 'selected'}>No</option></select></div></div><label>Giving categories</label><input id="ct" value="${esc(t.categories.join(', '))}"><p><button class="b" id="sv">Save template</button></p></div>`;
+    $('#sv').onclick = async () => { try { await api('POST', '/dev/template', { template: { paybill: $('#pb').value, language: $('#lg').value, requireJoinApproval: $('#ra').value === '1', categories: $('#ct').value.split(',').map((x) => x.trim()).filter(Boolean) } }); setMsg('Template saved.'); } catch (e) { setMsg('', e.message); } views.template(); };
+  },
+
+  async reports() {
+    const q = state.month ? '?month=' + encodeURIComponent(state.month) : '';
+    const r = await api('GET', '/dev/reports/health' + q); state.month = r.month; const t = r.totals;
+    const card = (n, l) => `<div class="card"><div class="big">${n}</div><div class="mute">${l}</div></div>`;
+    $('#main').innerHTML = `<h2>Church health &amp; usage</h2><p class="mute">Counts only: no money amounts, member names or notice text are shown to developers. "Active" = something happened in the last 14 days.</p>${flash()}
+    <div class="row" style="align-items:end"><div><label>Month</label><input type="month" id="rm" value="${esc(r.month)}"></div><div style="flex:0"><button class="b g" id="rcsv">Download spreadsheet (CSV)</button></div></div>
+    <div class="row" style="margin-top:12px">${card(t.churches, 'churches')}${card(t.active, 'active')}${card(t.quiet + t.dormant, 'quiet or dormant')}${card(t.setup, 'waiting for admin')}${card(t.members, 'members in all')}${card(t.supportUnread, 'unread support')}</div>
+    ${r.needAttention.length ? `<div class="card"><h3 style="margin-top:0">Needs attention</h3>${r.needAttention.map((a) => `<p><a href="#" class="go" data-id="${esc(a.id)}"><b>${esc(a.name)}</b></a> <span class="num">${esc(a.number)}</span><br><span class="mute">${a.reasons.map(esc).join(' · ')}</span></p>`).join('')}</div>` : '<div class="card"><p class="okmsg">Every church is in good shape.</p></div>'}
+    <div class="card"><table><tr><th>Church</th><th>Health</th><th class="h">Members</th><th class="h">New</th><th class="h">Receipts</th><th class="h">Notices</th><th class="h">Sermons</th><th class="h">Support</th><th class="h">Last activity</th></tr>
+    ${r.churches.map((c) => `<tr class="click" data-id="${esc(c.id)}"><td><b>${esc(c.name)}</b><div class="num">${esc(c.number)}</div></td><td><span class="pill ${esc(c.health)}">${esc(c.health)}</span></td><td class="h">${c.members}${c.waiting ? ` <span class="mute">(+${c.waiting} waiting)</span>` : ''}</td><td class="h">${c.newMembers}</td><td class="h">${c.receipts}</td><td class="h">${c.notices}</td><td class="h">${c.sermons}</td><td class="h">${c.support.messagesFromChurch}↑ ${c.support.messagesFromDevelopers}↓</td><td class="h mute">${c.lastActivity ? esc(when(c.lastActivity)) : '—'}</td></tr>`).join('')}</table></div>`;
+    $('#rm').onchange = (e) => { state.month = e.target.value; views.reports(); };
+    $('#rcsv').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([r.csv], { type: 'text/csv' })); a.download = 'church-health-' + r.month + '.csv'; a.click(); };
+    document.querySelectorAll('tr.click').forEach((x) => (x.onclick = () => go('church', x.dataset.id)));
+    document.querySelectorAll('a.go').forEach((x) => (x.onclick = (e) => { e.preventDefault(); go('church', x.dataset.id); }));
+  },
+  async activity() {
+    const e = (await api('GET', '/dev/audit')).entries;
+    $('#main').innerHTML = `<h2>Platform activity</h2><p class="mute">Every developer action is recorded here and cannot be changed or removed.</p><div class="card"><table>${e.map((x) => `<tr><td class="mute" style="white-space:nowrap">${esc(when(x.at))}</td><td>${esc(x.action)}</td><td class="mute">${esc(x.detail || '')}</td></tr>`).join('') || '<tr><td class="mute">Nothing yet.</td></tr>'}</table></div>`;
+  },
+};
+
+// ------------------------------------------------------------------ demo API (in the browser only)
+const luhn = (d) => { let s = 0; for (let i = 0; i < d.length; i++) { let x = Number(d[d.length - 1 - i]); if (i % 2 === 0) { x *= 2; if (x > 9) x -= 9; } s += x; } return (10 - (s % 10)) % 10; };
+const fmtNum = (n) => n.slice(0, 3) + '-' + n.slice(3);
+const validNum = (n) => /^\d{7}$/.test(n) && luhn(n.slice(0, 6)) === Number(n[6]);
+function demoState() {
+  let s = null; try { s = JSON.parse(localStorage.getItem('cc-dev-demo') || 'null'); } catch { /* fresh */ }
+  if (s) return s;
+  const t = new Date().toISOString();
+  s = { template: { paybill: '', categories: ['Tithe', 'Offering', '13th Sabbath', 'Church Building', 'Other'], language: 'en', requireJoinApproval: true, accountHint: 'Your name', motto: '' },
+    devs: [{ id: 'd1', name: 'Amina (you)', phone: '0700000001', status: 'active' }, { id: 'd2', name: 'Brian', phone: '0700000002', status: 'active' }],
+    churches: [{ id: 'c1', number: '4827391', name: 'Kisumu Central SDA Church', status: 'active', adminPhone: '0711000001', district: 'Kisumu', station: 'Central', conference: 'Western Kenya', county: 'Kisumu', note: '', members: 128, waiting: 2, createdAt: t, settings: { paybill: '600111', language: 'en', requireJoinApproval: true, categories: ['Tithe', 'Offering', 'Church Building'] } },
+      { id: 'c2', number: '3150482', name: 'Nakuru Town SDA Church', status: 'active', adminPhone: '0722000001', district: 'Nakuru', station: '', conference: 'Central Rift', county: 'Nakuru', note: '', members: 74, waiting: 0, createdAt: t, settings: { paybill: '', language: 'sw', requireJoinApproval: true, categories: ['Zaka', 'Sadaka'] } }],
+    msgs: [{ id: 'm1', churchId: 'c1', from: 'admin', name: 'Grace Admin', body: 'Hello, our Pay Bill changed to 600111. Can you confirm it is updated?', at: t }],
+    reads: {}, audit: [{ at: t, by: 'system', action: 'church.create', detail: 'Kisumu Central SDA Church' }] };
+  return s;
+}
+function demoApi(method, path, body) {
+  const s = demoState(); const save = () => { try { localStorage.setItem('cc-dev-demo', JSON.stringify(s)); } catch { /* ignore */ } };
+  const fail = (status, error) => { throw Object.assign(new Error(error), { status }); };
+  const me = () => s.devs.find((d) => d.id === (state.dev || {}).id) || s.devs[0];
+  const [p, qs] = path.split('?'); const after = new URLSearchParams(qs || '').get('after') || '';
+  const log = (action, detail) => s.audit.unshift({ at: new Date().toISOString(), by: me().name, action, detail });
+  const unread = (cid) => s.msgs.filter((m) => m.churchId === cid && m.from === 'admin' && m.at > ((s.reads[me().id + cid]) || '')).length;
+  const row = (c) => ({ ...c, number: fmtNum(c.number), unread: unread(c.id), lastActivity: c.createdAt });
+  const activeN = () => s.devs.filter((d) => d.status === 'active').length;
+  let m;
+  if (method === 'GET' && p === '/sandbox/numbers') return { numbers: Array.from({ length: 10 }, (_, i) => ({ phone: '0700000' + String(i + 1).padStart(3, '0'), console: 'developer', role: 'developer', label: 'App Developer console, team member ' + (i + 1) })) };
+  if (method === 'POST' && p === '/sandbox/enter') { const ph = String(body.phone); if (!/^0700000(00[1-9]|010)$/.test(ph)) fail(403, 'That is not a team test number.'); let d = s.devs.find((x) => x.phone === ph); if (!d) { d = { id: 'sbx' + ph, name: 'Team developer ' + Number(ph.slice(-3)), phone: ph, status: 'active' }; s.devs.push(d); } d.status = 'active'; state.dev = d; save(); return { token: 'demo-token', developer: d, kind: 'developer' }; }
+  if (method === 'POST' && p === '/auth/request-otp') return { sent: true, devCode: '123456' };
+  if (method === 'POST' && p === '/dev/login') { const d = s.devs.find((x) => x.phone === String(body.phone).replace(/\D/g, '').replace(/^254/, '0') && x.status === 'active'); if (!d) fail(403, 'This number is not on the app developer team.'); if (body.code !== '123456') fail(400, 'Wrong code.'); state.dev = d; return { token: 'demo', developer: d, limit: 10 }; }
+  if (p === '/dev/team' && method === 'GET') return { limit: 10, active: activeN(), developers: s.devs };
+  if (p === '/dev/team' && method === 'POST') { if (activeN() >= 10) fail(409, 'The developer team is full (10 people). Archive someone first.'); if (!/^0\d{9}$/.test(body.phone || '')) fail(400, 'Enter a valid Kenyan phone number.'); if (String(body.name || '').trim().length < 2) fail(400, "Write the developer's name."); if (s.devs.some((d) => d.phone === body.phone && d.status === 'active')) fail(409, 'That person is already on the team.'); s.devs.push({ id: 'd' + Date.now(), name: body.name.trim(), phone: body.phone, status: 'active' }); log('developer.add', body.phone); save(); return {}; }
+  if ((m = p.match(/^\/dev\/team\/(.+)\/(archive|restore)$/))) { const d = s.devs.find((x) => x.id === m[1]); if (!d) fail(404, 'Not found.'); if (m[2] === 'archive') { if (d.id === me().id) fail(409, 'You cannot archive yourself. Ask another developer.'); d.status = 'archived'; } else { if (activeN() >= 10) fail(409, 'The developer team is full (10 people).'); d.status = 'active'; } log('developer.' + m[2], d.phone); save(); return {}; }
+  if (p === '/dev/template' && method === 'GET') return { template: s.template };
+  if (p === '/dev/template') { s.template = { ...s.template, ...body.template }; log('template.update', ''); save(); return { template: s.template }; }
+  if (p === '/dev/churches' && method === 'GET') return { churches: s.churches.map(row) };
+  if (p === '/dev/churches' && method === 'POST') {
+    const nm = String(body.name || '').trim(); if (nm.length < 3) fail(400, 'Write the church name (at least 3 letters).');
+    let num = String(body.number || '').replace(/\D/g, '');
+    if (num) { if (!validNum(num)) fail(400, 'That church number is not valid. It must be 7 digits ending in the correct check digit.'); if (s.churches.some((c) => c.number === num)) fail(409, 'That church number is already assigned to another church.'); }
+    else do { const six = String(100000 + Math.floor(Math.random() * 900000)); num = six + luhn(six); } while (s.churches.some((c) => c.number === num));
+    const src = s.churches.find((c) => c.id === body.cloneFrom);
+    const c = { id: 'c' + Date.now(), number: num, name: nm, status: 'active', adminPhone: body.adminPhone || '', district: body.district || '', station: body.station || '', conference: body.conference || '', county: body.county || '', note: body.note || '', members: 0, waiting: 0, createdAt: new Date().toISOString(), clonedFrom: src ? src.id : null, settings: { ...(src ? src.settings : s.template) } };
+    s.churches.push(c); log('church.create', nm + ' #' + num); save(); return { church: row(c) };
+  }
+  if ((m = p.match(/^\/dev\/churches\/([^/]+)$/)) && method === 'GET') { const c = s.churches.find((x) => x.id === m[1]); if (!c) fail(404, 'Church not found.'); return { church: row(c), settings: c.settings, bindings: c.members, history: s.audit.filter((a) => (a.detail || '').includes(c.name)).slice(0, 30) }; }
+  if ((m = p.match(/^\/dev\/churches\/([^/]+)\/(update|admin|status)$/))) {
+    const c = s.churches.find((x) => x.id === m[1]); if (!c) fail(404, 'Church not found.');
+    if (m[2] === 'update') { if (body.name !== undefined) { if (body.name.trim().length < 3) fail(400, 'Write the church name (at least 3 letters).'); c.name = body.name.trim(); } for (const k of ['district', 'station', 'conference', 'county', 'note']) if (typeof body[k] === 'string') c[k] = body[k]; if (body.settings) c.settings = { ...c.settings, ...body.settings }; log('church.update', c.name); }
+    if (m[2] === 'admin') { if (!/^0\d{9}$/.test(body.phone || '')) fail(400, 'Enter a valid Kenyan phone number for the church admin.'); if (body.phone === c.adminPhone) fail(409, 'That person is already the admin.'); c.adminPhone = body.phone; log('church.admin', c.name + ' ' + body.phone); }
+    if (m[2] === 'status') { c.status = body.status; log('church.' + body.status, c.name); }
+    save(); return { church: row(c) };
+  }
+  if (p === '/dev/reports/health') {
+    const month = new URLSearchParams(qs || '').get('month') || new Date().toISOString().slice(0, 7);
+    if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(month)) fail(400, 'Choose a month like 2026-10.');
+    const cur = month === new Date().toISOString().slice(0, 7);
+    const rows = s.churches.map((c, i) => { const adminIn = i < 2; const health = c.status === 'archived' ? 'archived' : c.status === 'suspended' ? 'paused' : !adminIn ? 'setup' : 'active'; const k = cur ? 1 : 0; const sp = { messagesFromChurch: s.msgs.filter((x) => x.churchId === c.id && x.from === 'admin').length * k, messagesFromDevelopers: s.msgs.filter((x) => x.churchId === c.id && x.from === 'developer').length * k, unread: unread(c.id) };
+      const attention = []; if (health === 'setup') attention.push('The church admin has not signed in yet.'); if (c.waiting >= 5) attention.push(c.waiting + ' people are waiting to join.'); if (sp.unread) attention.push(sp.unread + ' unread support message' + (sp.unread > 1 ? 's' : '') + '.');
+      return { id: c.id, number: fmtNum(c.number), name: c.name, status: c.status, health, lastActivity: c.createdAt, members: c.members, waiting: c.waiting, newMembers: cur ? Math.round(c.members / 10) : 0, payments: cur ? c.members : 0, receipts: cur ? Math.round(c.members * 0.8) : 0, notices: cur ? 4 : 0, activities: cur ? 3 : 0, sermons: cur ? 2 : 0, attendance: cur ? 4 : 0, withPush: Math.round(c.members * 0.6), support: sp, attention }; });
+    const sum = (f) => rows.reduce((t, r) => t + f(r), 0); const cnt = (h) => rows.filter((r) => r.health === h).length;
+    const totals = { churches: rows.length, active: cnt('active'), quiet: cnt('quiet'), dormant: cnt('dormant'), setup: cnt('setup'), paused: cnt('paused'), archived: cnt('archived'), members: sum((r) => r.members), waiting: sum((r) => r.waiting), newMembers: sum((r) => r.newMembers), receipts: sum((r) => r.receipts), notices: sum((r) => r.notices), sermons: sum((r) => r.sermons), supportUnread: sum((r) => r.support.unread) };
+    const cell = (v) => { const t = String(v ?? ''); return /[",\n\r;]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
+    const csv = '﻿' + [['Church', 'Church number', 'Status', 'Health', 'Members', 'Waiting', 'New members', 'Payments reported', 'Receipts issued', 'Notices', 'Activities', 'Sermon summaries', 'Attendance records', 'Phones with alerts', 'Last activity', 'Support: from church', 'Support: from us'], ...rows.map((r) => [r.name, r.number, r.status, r.health, r.members, r.waiting, r.newMembers, r.payments, r.receipts, r.notices, r.activities, r.sermons, r.attendance, r.withPush, (r.lastActivity || '').slice(0, 10), r.support.messagesFromChurch, r.support.messagesFromDevelopers])].map((l) => l.map(cell).join(',')).join('\r\n') + '\r\n';
+    return { month, totals, churches: rows, needAttention: rows.filter((r) => r.attention.length && r.status !== 'archived').map((r) => ({ id: r.id, name: r.name, number: r.number, reasons: r.attention })), csv };
+  }
+  if (p === '/dev/audit') return { entries: s.audit.slice(0, 200) };
+  if (p === '/dev/support' && method === 'GET') { const th = s.churches.map((c) => { const ms = s.msgs.filter((x) => x.churchId === c.id); const l = ms[ms.length - 1]; return l ? { churchId: c.id, church: c.name, number: fmtNum(c.number), unread: unread(c.id), last: l } : null; }).filter(Boolean).sort((a, b) => (b.last.at > a.last.at ? 1 : -1)); return { threads: th, unread: th.reduce((n, t) => n + t.unread, 0) }; }
+  if ((m = p.match(/^\/dev\/support\/([^/]+)$/))) {
+    if (method === 'GET') { const ms = s.msgs.filter((x) => x.churchId === m[1] && x.at > after); s.reads[me().id + m[1]] = new Date().toISOString(); save(); return { messages: ms }; }
+    const t = String(body.body || '').trim(); if (!t) fail(400, 'Write a message first.');
+    s.msgs.push({ id: 'm' + Date.now(), churchId: m[1], from: 'developer', name: me().name, body: t, at: new Date().toISOString() }); save(); return {};
+  }
+  fail(404, 'Not found (demo).');
+}
+
+// ------------------------------------------------------------------ start
+(async () => {
+  if (token || DEMO) {
+    try { if (!DEMO) state.dev = (await api('GET', '/dev/me')).developer; } catch { token = null; store.del('dev-token'); }
+    if (state.dev) boot(); else render();
+  } else render();
+  setInterval(async () => { if (state.dev && !document.hidden) { const before = state.unread; try { await loadThreads(); } catch { return; } if (state.unread !== before && state.view !== 'support') render(); } }, 20000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "church-connect-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Church Connect API and developer console (zero npm dependencies; uses Node's built-in SQLite)",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.mjs",
+    "test": "node --no-warnings test.mjs",
+    "test:all": "node run-all-tests.mjs"
+  }
+}

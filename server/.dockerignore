@@ -1,0 +1,10 @@
+node_modules
+*.db
+*.db-wal
+*.db-shm
+sermon-audio
+backups
+test.mjs
+test-*.mjs
+README.md
+.env
