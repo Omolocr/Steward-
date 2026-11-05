@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Church Connect",
+    "slug": "church-connect",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Used to record the sermon for the summary."
+      }
+    },
+    "android": {
+      "permissions": [
+        "RECORD_AUDIO",
+        "POST_NOTIFICATIONS"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow Church Connect to record the sermon."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#1d4ed8"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "REPLACE-WITH-YOUR-EAS-PROJECT-ID"
+      }
+    },
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

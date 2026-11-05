@@ -1,0 +1,22 @@
+.git
+.github
+node_modules
+.env
+.env.*
+*.db
+*.db-*
+# mobile app and documents: not needed by the server image
+src
+assets
+App.tsx
+app.json
+eas.json
+tsconfig.json
+package.json
+package-lock.json
+church-app-preview.html
+*.md
+deploy
+server/test*.mjs
+server/smoke-test.mjs.bak
+server/*.md

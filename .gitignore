@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+web-build/
+*.db
+*.db-shm
+*.db-wal
+/data/
+sermon-audio/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+*.zip
