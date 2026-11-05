@@ -1,0 +1,16 @@
+# Caddy gets and renews the HTTPS certificate automatically for the domain in .env (DOMAIN=api.yourchurch.org).
+{$DOMAIN} {
+	encode gzip
+
+	# Long sermon recordings are uploaded in one request.
+	request_body {
+		max_size 320MB
+	}
+
+	reverse_proxy app:8080 {
+		transport http {
+			read_timeout 30m
+			write_timeout 30m
+		}
+	}
+}

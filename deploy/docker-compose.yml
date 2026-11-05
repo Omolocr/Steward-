@@ -1,0 +1,53 @@
+# Church Connect: server + automatic HTTPS + daily backups.   Start with:  docker compose up -d --build
+name: church-connect
+
+services:
+  app:
+    build: ../server
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /data
+      PERSISTENT_STORAGE: "yes"   # /data below is a Docker volume that survives updates. Run ONE copy of this app.
+      PORT: "8080"
+      TRUST_PROXY: "1"          # safe here: only Caddy can reach this container, and it sets the real client address
+    volumes:
+      - church_data:/data
+    expose:
+      - "8080"
+    stop_grace_period: 30s
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in the .env file}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data         # keeps the HTTPS certificate between restarts
+      - caddy_config:/config
+    depends_on:
+      - app
+
+  backup:
+    build: ../server
+    restart: unless-stopped
+    # No env_file on purpose: the backup job does not need your API keys or secrets.
+    environment:
+      DATA_DIR: /data
+      BACKUP_DIR: /backups
+      BACKUP_KEEP: ${BACKUP_KEEP:-60}
+      BACKUP_HOOK: ${BACKUP_HOOK:-}
+    volumes:
+      - church_data:/data
+      - ./backups:/backups       # create it first:  mkdir backups && sudo chown 1000:1000 backups
+    entrypoint: ["sh", "-c", "while true; do node --no-warnings backup.mjs || true; sleep 86400; done"]
+
+volumes:
+  church_data:
+  caddy_data:
+  caddy_config:
